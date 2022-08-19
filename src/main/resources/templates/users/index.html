@@ -2,14 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
-<head>
+<head th:align="center">
     <meta charset="UTF-8">
     <title>Все пользователи</title>
 </head>
 <body>
-<h2>Все пользователи</h2>
+<h2 align="center">Все пользователи</h2>
 <div>
-    <table>
+    <table align="center" border="1">
         <tr>
             <th>Id</th>
             <th>Имя</th>
@@ -20,8 +20,8 @@
         <tr th:each="user : ${users}">
             <td th:text="${user.getId()}">Id</td>
             <td th:text="${user.getName()}">Имя</td>
-            <td th:text="${user.getSurname()}">Фамилия</td>
-            <td th:text="${user.getMail()}">Почта</td>
+            <td th:text="${user.getLastname()}">Фамилия</td>
+            <td th:text="${user.getAge()}">Возраст</td>
 
             <td>
                 <form th:action="@{users/edit/{id}(id=${user.id})}" th:object="${user}">
@@ -35,7 +35,7 @@
             </td>
         </tr>
     </table>
-    <form th:action="@{users/new}">
+    <form th:action="@{users/new}" th:align="center">
         <button type="submit">Добавить нового пользователя</button>
     </form>
 </div>
